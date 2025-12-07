@@ -31,24 +31,25 @@ const navigation = {
 
 export function Footer() {
   return (
-    <footer className="dark-gradient text-secondary-foreground">
-      <div className="container mx-auto px-4 lg:px-8 py-16">
+    <footer 
+      className="dark-gradient text-secondary-foreground relative overflow-hidden"
+      data-aos="fade-up"
+      data-aos-duration="800"
+    >
+      {/* Decorative gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent" />
+      
+      <div className="container mx-auto px-4 lg:px-8 py-16 max-w-7xl relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-lg hero-gradient flex items-center justify-center">
-                <span className="text-primary-foreground font-display text-xl font-bold">S</span>
-              </div>
-              <div>
-                <span className="font-display text-xl font-bold text-secondary-foreground tracking-tight">
-                  SANKARA
-                </span>
-                <span className="block text-xs text-muted-foreground font-body -mt-1">
-                  Nigeria Limited
-                </span>
-              </div>
-            </div>
+            <Link to="/" className="flex items-center gap-3 mb-6" aria-label="Sankara Nigeria Limited Home">
+              <img
+                src="/Sankara%20Logo.png"
+                alt="Sankara Nigeria Limited Logo"
+                className="h-12 w-auto object-contain"
+              />
+            </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
               Driving agricultural growth with reliable machinery. Your trusted partner for tractors, farm implements, and genuine spare parts.
             </p>
@@ -57,7 +58,7 @@ export function Footer() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="w-10 h-10 rounded-lg bg-secondary/50 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                  className="w-12 h-12 rounded-xl bg-secondary/50 backdrop-blur-sm flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   <item.icon className="h-5 w-5" />
                 </a>

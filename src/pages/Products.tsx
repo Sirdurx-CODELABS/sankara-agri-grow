@@ -129,14 +129,21 @@ const Products = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-16 lg:py-24 hero-gradient">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
+      <section className="py-16 lg:py-24 hero-gradient relative overflow-hidden">
+        {/* Decorative gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
+        
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
+          <div 
+            className="max-w-3xl mx-auto text-center"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
             <span className="text-accent font-semibold text-sm uppercase tracking-wider">Our Products</span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground mt-4 mb-6">
               Premium Agricultural Machinery
             </h1>
-            <p className="text-primary-foreground/80 text-lg leading-relaxed">
+            <p className="text-primary-foreground/90 text-lg lg:text-xl leading-relaxed">
               Explore our comprehensive range of tractors, implements, and spare parts from world-leading manufacturers.
             </p>
           </div>
@@ -144,19 +151,22 @@ const Products = () => {
       </section>
 
       {/* Products Section */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-16 lg:py-24 bg-background">
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
           {/* Category Filter */}
-          <div className="flex items-center gap-4 mb-12 overflow-x-auto pb-4">
+          <div 
+            className="flex items-center gap-4 mb-12 lg:mb-16 overflow-x-auto pb-4"
+            data-aos="fade-up"
+          >
             <Filter className="h-5 w-5 text-muted-foreground flex-shrink-0" />
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
                 className={cn(
-                  "px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all",
+                  "px-5 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap transition-all duration-300 shadow-lg hover:scale-105",
                   activeCategory === cat.id
-                    ? "bg-primary text-primary-foreground"
+                    ? "bg-primary text-primary-foreground shadow-xl"
                     : "bg-muted text-muted-foreground hover:bg-muted/80"
                 )}
               >
@@ -166,28 +176,31 @@ const Products = () => {
           </div>
 
           {/* Products Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {filteredProducts.map((product, index) => (
               <div
                 key={product.id}
-                className="group bg-card rounded-xl overflow-hidden border border-border hover-lift animate-fade-up"
-                style={{ animationDelay: `${index * 50}ms` }}
+                className="group bg-card rounded-2xl overflow-hidden border border-border/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                data-aos="fade-up"
+                data-aos-delay={index * 50}
               >
                 {/* Image */}
-                <div className="aspect-[4/3] overflow-hidden bg-muted">
+                <div className="aspect-[4/3] overflow-hidden bg-muted relative">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
+                  {/* Gradient Overlay on Hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
-                  <h3 className="font-display text-xl font-bold text-foreground mb-2">
+                <div className="p-6 lg:p-8">
+                  <h3 className="font-display text-xl lg:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                     {product.name}
                   </h3>
-                  <p className="text-muted-foreground text-sm mb-4">
+                  <p className="text-muted-foreground text-sm lg:text-base mb-6 leading-relaxed">
                     {product.description}
                   </p>
 
@@ -196,7 +209,7 @@ const Products = () => {
                     {product.specs.map((spec, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-1 rounded bg-muted text-xs text-muted-foreground"
+                        className="px-3 py-1.5 rounded-lg bg-muted text-xs text-muted-foreground font-medium"
                       >
                         {spec}
                       </span>
@@ -205,13 +218,13 @@ const Products = () => {
 
                   {/* Actions */}
                   <div className="flex gap-2">
-                    <Button variant="default" size="sm" className="flex-1" asChild>
+                    <Button variant="default" size="sm" className="flex-1 hover:scale-105 transition-transform duration-300" asChild>
                       <a href="tel:+2348099933644">
                         <Phone className="h-4 w-4" />
                         Contact for Price
                       </a>
                     </Button>
-                    <Button variant="whatsapp" size="sm" asChild>
+                    <Button variant="whatsapp" size="sm" className="hover:scale-105 transition-transform duration-300" asChild>
                       <a
                         href={`https://wa.me/2348099933644?text=${encodeURIComponent(`Hi, I'm interested in ${product.name}`)}`}
                         target="_blank"
@@ -229,16 +242,23 @@ const Products = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-muted">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4">
+      <section className="py-16 lg:py-24 bg-muted relative overflow-hidden">
+        {/* Decorative gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+        
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
+          <div 
+            className="max-w-3xl mx-auto text-center"
+            data-aos="zoom-in"
+            data-aos-duration="800"
+          >
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Can't Find What You're Looking For?
             </h2>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
               Contact us for custom orders and special requirements. We can source any agricultural machinery you need.
             </p>
-            <Button size="lg" asChild>
+            <Button size="lg" className="shadow-xl hover:scale-105 transition-transform duration-300" asChild>
               <Link to="/contact">Contact Our Team</Link>
             </Button>
           </div>

@@ -9,6 +9,7 @@ const navigation = [
   { name: "About Us", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Products", href: "/products" },
+  { name: "Gallery", href: "/gallery" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -17,23 +18,21 @@ export function Header() {
   const location = useLocation();
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border">
-      <nav className="container mx-auto px-4 lg:px-8" aria-label="Global">
+    <header 
+      className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/70 border-b border-border/50 shadow-lg"
+      data-aos="fade-down"
+      data-aos-duration="600"
+    >
+      <nav className="container mx-auto px-4 lg:px-8 max-w-7xl" aria-label="Global">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <div className="flex lg:flex-1">
-            <Link to="/" className="-m-1.5 p-1.5 flex items-center gap-3">
-              <div className="w-12 h-12 rounded-lg hero-gradient flex items-center justify-center">
-                <span className="text-primary-foreground font-display text-xl font-bold">S</span>
-              </div>
-              <div className="hidden sm:block">
-                <span className="font-display text-xl font-bold text-foreground tracking-tight">
-                  SANKARA
-                </span>
-                <span className="block text-xs text-muted-foreground font-body -mt-1">
-                  Nigeria Limited
-                </span>
-              </div>
+            <Link to="/" className="-m-1.5 p-1.5 flex items-center gap-3" aria-label="Sankara Nigeria Limited Home">
+              <img
+                src="/Sankara%20Logo.png"
+                alt="Sankara Nigeria Limited Logo"
+                className="h-12 w-auto object-contain"
+              />
             </Link>
           </div>
 
