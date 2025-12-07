@@ -19,8 +19,8 @@ const buttonVariants = cva(
         hero: "bg-accent text-accent-foreground font-display uppercase tracking-wider hover:shadow-2xl hover:scale-105 active:scale-100 transition-all duration-300 rounded-xl",
         // Hero outline - for secondary hero CTAs
         heroOutline: "border-2 border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary font-display uppercase tracking-wider rounded-xl hover:scale-105 transition-all duration-300",
-        // WhatsApp green
-        whatsapp: "bg-[hsl(142_70%_45%)] text-primary-foreground hover:bg-[hsl(142_70%_40%)] hover:shadow-xl rounded-xl hover:scale-105 transition-all duration-300",
+        // WhatsApp - using brand blue
+        whatsapp: "bg-[hsl(240_100%_30%)] text-primary-foreground hover:bg-[hsl(240_100%_25%)] hover:shadow-xl rounded-xl hover:scale-105 transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",
