@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Layout } from "@/components/Layout";
 import { ImageGrid } from "@/components/gallery/ImageGrid";
-import { Camera } from "lucide-react";
+import { Camera, GraduationCap, Bus, Users, BookOpen } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import heroImage from "@/assets/hero-tractor.jpg";
 
 // List of image filenames in public/images/ (excluding videos)
@@ -107,7 +108,7 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Gallery Grid Section */}
+      {/* Gallery Grid Section with Exhibition Movements */}
       <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div
@@ -115,7 +116,7 @@ const Gallery = () => {
             data-aos="fade-up"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-              Exhibition Moments
+              Exhibition Movements
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Relive the highlights from the Kura 2025 Exhibition. Browse through
@@ -124,19 +125,152 @@ const Gallery = () => {
             </p>
           </div>
 
-          {images.length > 0 ? (
-            <>
-              {/* Debug info - remove in production */}
-              <div className="mb-4 text-xs text-muted-foreground text-center">
-                Debug: {images.length} images loaded. Sample path: {images[0]}
+          {/* Exhibition Movement Tabs */}
+          <Tabs defaultValue="all" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-5 h-auto p-1 bg-muted/50 mb-8">
+              <TabsTrigger 
+                value="all" 
+                className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
+                <Camera className="h-4 w-4" />
+                <span className="hidden sm:inline">All Photos</span>
+                <span className="sm:hidden">All</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="student-visit"
+                className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <GraduationCap className="h-4 w-4" />
+                <span className="hidden sm:inline">Student Visit</span>
+                <span className="sm:hidden">Students</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="excursion"
+                className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                <Bus className="h-4 w-4" />
+                <span className="hidden sm:inline">Excursion</span>
+                <span className="sm:hidden">Excursion</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="ecowas-visit"
+                className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                data-aos="fade-up"
+                data-aos-delay="400"
+              >
+                <Users className="h-4 w-4" />
+                <span className="hidden sm:inline">ECOWAS Visit</span>
+                <span className="sm:hidden">ECOWAS</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="workshop"
+                className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                data-aos="fade-up"
+                data-aos-delay="500"
+              >
+                <BookOpen className="h-4 w-4" />
+                <span className="hidden sm:inline">Workshop</span>
+                <span className="sm:hidden">Workshop</span>
+              </TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="all" className="mt-8">
+              {images.length > 0 ? (
+                <>
+                  <div className="mb-4 text-xs text-muted-foreground text-center">
+                    Debug: {images.length} images loaded. Sample path: {images[0]}
+                  </div>
+                  <ImageGrid images={images} />
+                </>
+              ) : (
+                <div className="text-center py-12">
+                  <p className="text-muted-foreground">Loading gallery...</p>
+                </div>
+              )}
+            </TabsContent>
+
+            <TabsContent value="student-visit" className="mt-8">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">
+                  <GraduationCap className="h-6 w-6 text-primary" />
+                  Student Visit
+                </h3>
+                <p className="text-muted-foreground">
+                  Highlights from student visits during the Kura 2025 Exhibition
+                </p>
               </div>
-              <ImageGrid images={images} />
-            </>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground">Loading gallery...</p>
-            </div>
-          )}
+              {images.length > 0 ? (
+                <ImageGrid images={images} />
+              ) : (
+                <div className="text-center py-12">
+                  <p className="text-muted-foreground">Loading gallery...</p>
+                </div>
+              )}
+            </TabsContent>
+
+            <TabsContent value="excursion" className="mt-8">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">
+                  <Bus className="h-6 w-6 text-primary" />
+                  Excursion
+                </h3>
+                <p className="text-muted-foreground">
+                  Excursion activities and field visits during the exhibition
+                </p>
+              </div>
+              {images.length > 0 ? (
+                <ImageGrid images={images} />
+              ) : (
+                <div className="text-center py-12">
+                  <p className="text-muted-foreground">Loading gallery...</p>
+                </div>
+              )}
+            </TabsContent>
+
+            <TabsContent value="ecowas-visit" className="mt-8">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">
+                  <Users className="h-6 w-6 text-primary" />
+                  ECOWAS Visit
+                </h3>
+                <p className="text-muted-foreground">
+                  Special moments from the ECOWAS delegation visit
+                </p>
+              </div>
+              {images.length > 0 ? (
+                <ImageGrid images={images} />
+              ) : (
+                <div className="text-center py-12">
+                  <p className="text-muted-foreground">Loading gallery...</p>
+                </div>
+              )}
+            </TabsContent>
+
+            <TabsContent value="workshop" className="mt-8">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">
+                  <BookOpen className="h-6 w-6 text-primary" />
+                  Workshop
+                </h3>
+                <p className="text-muted-foreground">
+                  Workshop sessions and training activities during the exhibition
+                </p>
+              </div>
+              {images.length > 0 ? (
+                <ImageGrid images={images} />
+              ) : (
+                <div className="text-center py-12">
+                  <p className="text-muted-foreground">Loading gallery...</p>
+                </div>
+              )}
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
     </Layout>

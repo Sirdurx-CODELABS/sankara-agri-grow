@@ -34,7 +34,7 @@ const values = [
   {
     icon: Eye,
     title: "Our Vision",
-    description: "To be Nigeria's most trusted and preferred partner for agricultural mechanization, setting the standard for quality, reliability, and customer service in the industry.",
+    description: "Driven by passion and purpose, our vision is to become the most recognized and trusted agricultural machinery partner across West Africa; championing modern farming, strengthening partnerships, and delivering innovations that transform communities and protect the environment.",
   },
   {
     icon: Heart,
@@ -45,7 +45,7 @@ const values = [
 
 const milestones = [
   {
-    year: "2009",
+    year: "1986",
     icon: Building2,
     title: "Company Founded",
     description: "Sankara Nigeria Limited was established with a vision to transform Nigerian agriculture through reliable machinery.",
@@ -161,7 +161,7 @@ const About = () => {
               data-aos-delay="200"
               data-aos-duration="900"
             >
-              For over 15 years, Sankara Nigeria Limited has been at the forefront of agricultural mechanization, providing farmers with world-class machinery, genuine parts, and unwavering support to transform Nigerian agriculture.
+              Since its establishment in 1986, Sankara Nigeria Limited has remained a trusted force in agricultural transformation across Nigeria and the wider region. Built on a foundation of integrity, innovation, and dedicated service, we have led the advancement of mechanized and sustainable farming for nearly four decades.
             </p>
 
             {/* CTA Buttons - Centered */}
@@ -214,7 +214,7 @@ const About = () => {
                 data-aos="zoom-in"
                 data-aos-delay="400"
               >
-                <p className="font-display text-4xl lg:text-5xl font-bold">15+</p>
+                <p className="font-display text-4xl lg:text-5xl font-bold">40+</p>
                 <p className="text-sm opacity-90">Years of Excellence</p>
               </div>
             </div>
@@ -228,13 +228,13 @@ const About = () => {
 
               <div className="space-y-5 text-muted-foreground text-base lg:text-lg leading-relaxed">
                 <p className="font-semibold text-foreground">
-                  Founded with a vision to transform Nigerian agriculture, Sankara Nigeria Limited has grown from a small tractor dealership to one of the country's leading agricultural machinery suppliers.
+                  Since its establishment in 1986, Sankara Nigeria Limited has remained a trusted force in agricultural transformation across Nigeria and the wider region. Built on a foundation of integrity, innovation, and dedicated service, we have led the advancement of mechanized and sustainable farming for nearly four decades.
                 </p>
                 <p>
-                  Our journey began over 15 years ago when our founders recognized the critical need for reliable, high-quality farming equipment in Nigeria. Since then, we've built strategic partnerships with world-renowned manufacturers including Massey Ferguson, Lovol, and Zoomlion, establishing a reputation for excellence and trust.
+                  Our impact spans the entire Nigerian landscape and extends into neighbouring countries such as Niger, Chad, Cameroon, and Benin, as well as customers all over the world, delivering reliable machinery, genuine spare parts, and expert technical support wherever farmers need us.
                 </p>
                 <p>
-                  Today, we proudly serve farmers across all 36 states of Nigeria, providing them with premium tractors, comprehensive farm implements, and genuine spare parts. Our commitment to quality, customer service, and agricultural development has made us a trusted partner in Nigeria's agricultural transformation.
+                  At Sankara, we don't just supply equipment; we provide complete agricultural solutions that empower farmers, agribusinesses, and institutions to achieve greater productivity, efficiency, and long-term growth.
                 </p>
               </div>
 
@@ -256,7 +256,7 @@ const About = () => {
                       Our Vision
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      To be Nigeria's most trusted and preferred partner for agricultural mechanization, setting the standard for quality, reliability, and customer service in the industry.
+                      Driven by passion and purpose, our vision is to become the most recognized and trusted agricultural machinery partner across West Africa; championing modern farming, strengthening partnerships, and delivering innovations that transform communities and protect the environment.
                     </p>
                   </div>
                   <div>
@@ -381,7 +381,7 @@ const About = () => {
                 gradient: "from-accent to-accent/80",
               },
               {
-                value: "15+",
+                value: "40+",
                 label: "Years Industry Experience",
                 icon: Award,
                 gradient: "from-primary to-accent",
