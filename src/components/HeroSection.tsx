@@ -87,7 +87,7 @@ export function HeroSection() {
             data-aos-delay="400"
           >
             <div className="text-center">
-              <p className="font-display text-4xl md:text-5xl font-bold text-accent mb-2">15+</p>
+              <p className="font-display text-4xl md:text-5xl font-bold text-accent mb-2">40+</p>
               <p className="text-primary-foreground/80 text-sm font-medium">Years Experience</p>
             </div>
             <div className="text-center">

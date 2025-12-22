@@ -84,7 +84,7 @@ const services = [
 ];
 
 const whyChooseUs = [
-  { stat: "15+", label: "Years Experience" },
+  { stat: "40+", label: "Years Experience" },
   { stat: "500+", label: "Tractors Delivered" },
   { stat: "24/7", label: "Support Available" },
   { stat: "100%", label: "Genuine Parts" },
