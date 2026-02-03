@@ -7,79 +7,79 @@
 
 @layer base {
   :root {
-    /* Sankara Brand Colors */
+    /* Sankara Brand Colors - Based on #000066 */
     --background: 0 0% 100%;
-    --foreground: 220 13% 13%;
+    --foreground: 240 100% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 13% 13%;
+    --card-foreground: 240 100% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 13%;
+    --popover-foreground: 240 100% 20%;
 
-    /* Brand Blue - #000066 */
+    /* Primary Brand Blue - #000066 */
     --primary: 240 100% 20%;
     --primary-foreground: 0 0% 100%;
 
-    /* Charcoal Industrial */
-    --secondary: 220 13% 18%;
-    --secondary-foreground: 0 0% 98%;
+    /* Secondary - Lighter shade of #000066 */
+    --secondary: 240 100% 95%;
+    --secondary-foreground: 240 100% 20%;
 
-    /* Muted - Light Gray */
-    --muted: 210 20% 96%;
-    --muted-foreground: 220 10% 46%;
+    /* Muted - Very light blue tint */
+    --muted: 240 20% 96%;
+    --muted-foreground: 240 50% 40%;
 
-    /* Blue Accent - variations of #000066 */
-    --accent: 240 100% 40%;
+    /* Accent - Medium shade of #000066 */
+    --accent: 240 100% 35%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 214 20% 88%;
-    --input: 214 20% 88%;
-    --ring: 240 100% 30%;
+    --border: 240 20% 88%;
+    --input: 240 20% 88%;
+    --ring: 240 100% 20%;
 
     --radius: 0.5rem;
 
-    /* Custom Design Tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(240 100% 30%) 0%, hsl(240 100% 20%) 100%);
-    --gradient-dark: linear-gradient(180deg, hsl(220 13% 13%) 0%, hsl(220 13% 8%) 100%);
-    --gradient-accent: linear-gradient(90deg, hsl(240 100% 40%) 0%, hsl(240 100% 35%) 100%);
+    /* Custom Design Tokens - All based on #000066 variations */
+    --gradient-hero: linear-gradient(135deg, hsl(240 100% 20%) 0%, hsl(240 100% 15%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(240 100% 20%) 0%, hsl(240 100% 10%) 100%);
+    --gradient-accent: linear-gradient(90deg, hsl(240 100% 35%) 0%, hsl(240 100% 25%) 100%);
     
-    --shadow-card: 0 4px 20px -4px hsl(220 13% 13% / 0.1);
-    --shadow-card-hover: 0 12px 40px -8px hsl(220 13% 13% / 0.2);
+    --shadow-card: 0 4px 20px -4px hsl(240 100% 20% / 0.1);
+    --shadow-card-hover: 0 12px 40px -8px hsl(240 100% 20% / 0.2);
     --shadow-hero: 0 20px 60px -10px hsl(240 100% 20% / 0.3);
 
-    /* Sidebar (keeping defaults) */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Sidebar - #000066 theme */
+    --sidebar-background: 240 20% 98%;
+    --sidebar-foreground: 240 100% 20%;
     --sidebar-primary: 240 100% 20%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent: 240 50% 95%;
     --sidebar-accent-foreground: 240 100% 20%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 240 100% 30%;
+    --sidebar-border: 240 20% 88%;
+    --sidebar-ring: 240 100% 20%;
   }
 
   .dark {
-    --background: 220 13% 8%;
+    --background: 240 100% 8%;
     --foreground: 0 0% 98%;
 
-    --card: 220 13% 12%;
+    --card: 240 100% 12%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 220 13% 12%;
+    --popover: 240 100% 12%;
     --popover-foreground: 0 0% 98%;
 
     --primary: 240 100% 35%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 13% 22%;
+    --secondary: 240 100% 22%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 13% 18%;
-    --muted-foreground: 220 10% 60%;
+    --muted: 240 50% 18%;
+    --muted-foreground: 240 30% 70%;
 
     --accent: 240 100% 45%;
     --accent-foreground: 0 0% 100%;
@@ -87,17 +87,17 @@
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 13% 22%;
-    --input: 220 13% 22%;
+    --border: 240 50% 22%;
+    --input: 240 50% 22%;
     --ring: 240 100% 35%;
 
-    --sidebar-background: 220 13% 10%;
+    --sidebar-background: 240 100% 10%;
     --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 240 100% 35%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 13% 15%;
+    --sidebar-accent: 240 50% 15%;
     --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 220 13% 18%;
+    --sidebar-border: 240 50% 18%;
     --sidebar-ring: 240 100% 35%;
   }
 }
@@ -163,6 +163,23 @@
 }
 
 @layer utilities {
+  /* #000066 Color Utilities */
+  .bg-brand-blue {
+    background-color: #000066;
+  }
+  
+  .text-brand-blue {
+    color: #000066;
+  }
+  
+  .border-brand-blue {
+    border-color: #000066;
+  }
+  
+  .ring-brand-blue {
+    --tw-ring-color: #000066;
+  }
+
   /* Animation utilities */
   .animate-fade-up {
     animation: fadeUp 0.6s ease-out forwards;

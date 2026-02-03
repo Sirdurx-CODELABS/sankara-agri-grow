@@ -33,40 +33,46 @@ const services = [
     side: "right",
   },
   {
+    icon: GraduationCap,
+    title: "Agricultural Training Sessions",
+    description: "Comprehensive training programs for farmers and operators on modern agricultural techniques, machinery operation, and maintenance. Hands-on sessions to maximize productivity and safety.",
+    side: "left",
+  },
+  {
     icon: Cog,
     title: "Genuine Spare Parts Supply",
     description: "100% authentic OEM spare parts ensuring optimal performance and longevity. Extensive inventory for all brands with fast nationwide delivery.",
-    side: "left",
+    side: "right",
   },
   {
     icon: Gauge,
     title: "Hydraulics & Transmission Service",
     description: "Specialized service for hydraulic systems and transmission components. Expert diagnostics, repairs, and replacements to keep your machinery operating smoothly.",
-    side: "right",
+    side: "left",
   },
   {
     icon: Truck,
     title: "On-Site Farm Machinery Support",
     description: "Mobile service team available for on-site repairs and maintenance. We come to your farm to minimize downtime and keep your operations running.",
-    side: "left",
+    side: "right",
   },
   {
     icon: Hammer,
     title: "Engine Overhaul & Diagnostics",
     description: "Comprehensive engine diagnostics and complete overhaul services. Expert technicians use advanced equipment to identify and fix engine issues efficiently.",
-    side: "right",
+    side: "left",
   },
   {
     icon: Scissors,
     title: "Harvesting Equipment Services",
     description: "Specialized maintenance and repair services for harvesting equipment. Keep your harvesters, combines, and related machinery in perfect working condition.",
-    side: "left",
+    side: "right",
   },
   {
     icon: CheckCircle,
     title: "Scheduled Preventive Maintenance",
     description: "Proactive maintenance programs designed to prevent breakdowns and extend equipment lifespan. Regular servicing keeps your machinery reliable and efficient.",
-    side: "right",
+    side: "left",
   },
 ];
 
@@ -261,6 +267,192 @@ const Services = () => {
               </div>
                 );
               })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Training Programs Section */}
+      <section className="py-20 lg:py-28 bg-muted/30 relative overflow-hidden">
+        {/* Gradient Divider */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
+        
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+          {/* Section Header */}
+          <div 
+            className="text-center max-w-3xl mx-auto mb-12 lg:mb-16"
+            data-aos="fade-up"
+          >
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">Training & Education</span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
+              Agricultural Training Programs
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Empower your farming operations with our comprehensive training sessions designed to enhance productivity, safety, and efficiency.
+            </p>
+          </div>
+
+          {/* Training Programs Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+            {/* Machinery Operation Training */}
+            <div 
+              className="bg-card rounded-2xl p-6 lg:p-8 border border-border/50 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div className="w-16 h-16 rounded-2xl hero-gradient flex items-center justify-center mb-6 shadow-lg">
+                <Tractor className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <h3 className="font-display text-xl lg:text-2xl font-bold text-foreground mb-4">
+                Machinery Operation Training
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Learn proper operation techniques for tractors, harvesters, and farm implements. Hands-on training to maximize efficiency and prevent costly mistakes.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                  Tractor operation & safety protocols
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                  Implement attachment & usage
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                  Field operation techniques
+                </li>
+              </ul>
+            </div>
+
+            {/* Maintenance Training */}
+            <div 
+              className="bg-card rounded-2xl p-6 lg:p-8 border border-border/50 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div className="w-16 h-16 rounded-2xl hero-gradient flex items-center justify-center mb-6 shadow-lg">
+                <Wrench className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <h3 className="font-display text-xl lg:text-2xl font-bold text-foreground mb-4">
+                Maintenance & Repair Training
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Essential maintenance skills to keep your equipment running smoothly. Learn preventive maintenance, troubleshooting, and basic repair techniques.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                  Preventive maintenance schedules
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                  Basic troubleshooting techniques
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                  Parts identification & replacement
+                </li>
+              </ul>
+            </div>
+
+            {/* Modern Farming Techniques */}
+            <div 
+              className="bg-card rounded-2xl p-6 lg:p-8 border border-border/50 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div className="w-16 h-16 rounded-2xl hero-gradient flex items-center justify-center mb-6 shadow-lg">
+                <Award className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <h3 className="font-display text-xl lg:text-2xl font-bold text-foreground mb-4">
+                Modern Farming Techniques
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Stay updated with the latest agricultural practices and technologies. Learn sustainable farming methods and productivity optimization strategies.
+              </p>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                  Precision agriculture techniques
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                  Sustainable farming practices
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                  Crop rotation & soil management
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Training Features */}
+          <div className="mt-16 lg:mt-20">
+            <div className="bg-card rounded-3xl p-8 lg:p-12 border border-border/50 shadow-xl">
+              <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div data-aos="fade-right">
+                  <h3 className="font-display text-2xl lg:text-3xl font-bold text-foreground mb-6">
+                    Why Choose Our Training Programs?
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-4">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                        <CheckCircle className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-1">Expert Instructors</h4>
+                        <p className="text-muted-foreground text-sm">Certified professionals with years of field experience</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                        <CheckCircle className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-1">Hands-On Learning</h4>
+                        <p className="text-muted-foreground text-sm">Practical training with real equipment and scenarios</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                        <CheckCircle className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-1">Flexible Scheduling</h4>
+                        <p className="text-muted-foreground text-sm">Training sessions scheduled around your farming calendar</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                        <CheckCircle className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-1">Certification</h4>
+                        <p className="text-muted-foreground text-sm">Receive certificates upon successful completion</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div data-aos="fade-left" className="text-center">
+                  <div className="bg-primary/5 rounded-2xl p-8 border border-primary/20">
+                    <GraduationCap className="h-16 w-16 text-primary mx-auto mb-4" />
+                    <h4 className="font-display text-xl font-bold text-foreground mb-2">
+                      Ready to Learn?
+                    </h4>
+                    <p className="text-muted-foreground mb-6">
+                      Join our next training session and enhance your agricultural skills
+                    </p>
+                    <Button variant="default" size="lg" className="shadow-lg hover:scale-105 transition-transform duration-300" asChild>
+                      <Link to="/contact">
+                        Enroll Now
+                        <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

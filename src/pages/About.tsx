@@ -345,6 +345,218 @@ const About = () => {
         </div>
       </section>
 
+      {/* Strategic Partnerships Section */}
+      <section className="py-20 lg:py-28 bg-background relative overflow-hidden">
+        {/* Gradient Divider */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
+        
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+          {/* Section Header */}
+          <div 
+            className="text-center max-w-3xl mx-auto mb-12 lg:mb-16"
+            data-aos="fade-up"
+          >
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">Strategic Partnerships</span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
+              Trusted by Leading Machinery Brands
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Our strong partnerships with world-renowned agricultural machinery manufacturers enable us to deliver the highest quality equipment and comprehensive support to Nigerian farmers.
+            </p>
+          </div>
+
+          {/* Partnership Benefits Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 mb-16">
+            {[
+              {
+                icon: Handshake,
+                title: "Authorized Dealerships",
+                description: "Official partnerships with leading global brands ensure authentic products, warranty coverage, and factory-backed support for all our customers.",
+              },
+              {
+                icon: Shield,
+                title: "Genuine OEM Parts",
+                description: "Direct access to original equipment manufacturer parts through our partnerships, guaranteeing quality, compatibility, and optimal performance.",
+              },
+              {
+                icon: GraduationCap,
+                title: "Technical Training",
+                description: "Continuous training programs from our manufacturing partners keep our technicians updated with the latest technologies and service techniques.",
+              },
+              {
+                icon: Globe,
+                title: "Global Standards",
+                description: "Our partnerships ensure we maintain international quality standards and best practices in sales, service, and customer support.",
+              },
+              {
+                icon: Zap,
+                title: "Latest Technology",
+                description: "Early access to cutting-edge agricultural innovations and technologies through our strong relationships with machinery manufacturers.",
+              },
+              {
+                icon: Award,
+                title: "Certified Excellence",
+                description: "Recognition and certification from our partners for outstanding performance in sales, service quality, and customer satisfaction.",
+              },
+            ].map((benefit, index) => (
+              <div
+                key={benefit.title}
+                className="group p-6 lg:p-8 rounded-2xl border border-border/50 bg-card shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
+                <div className="w-14 h-14 rounded-2xl hero-gradient flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                  <benefit.icon className="h-7 w-7 text-primary-foreground" />
+                </div>
+                <h3 className="font-display text-xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
+                  {benefit.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">
+                  {benefit.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Partnership Highlights */}
+          <div className="bg-card rounded-3xl p-8 lg:p-12 border border-border/50 shadow-xl">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div data-aos="fade-right">
+                <h3 className="font-display text-2xl lg:text-3xl font-bold text-foreground mb-6">
+                  Why Manufacturers Choose Sankara
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4">
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                      <Check className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Proven Track Record</h4>
+                      <p className="text-muted-foreground text-sm">Nearly 40 years of successful operations and customer satisfaction in the Nigerian market</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                      <Check className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Extensive Network</h4>
+                      <p className="text-muted-foreground text-sm">Nationwide presence covering all 36 states with reliable delivery and service infrastructure</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                      <Check className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Technical Expertise</h4>
+                      <p className="text-muted-foreground text-sm">Certified technicians and comprehensive after-sales support capabilities</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                      <Check className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Market Leadership</h4>
+                      <p className="text-muted-foreground text-sm">Leading position in agricultural machinery sales with over 1200 tractors delivered</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div data-aos="fade-left" className="text-center">
+                <div className="bg-primary/5 rounded-2xl p-8 border border-primary/20">
+                  <div className="flex items-center justify-center gap-4 mb-6">
+                    <Handshake className="h-12 w-12 text-primary" />
+                    <Globe className="h-12 w-12 text-accent" />
+                  </div>
+                  <h4 className="font-display text-xl font-bold text-foreground mb-2">
+                    Multiple Brand Partnerships
+                  </h4>
+                  <p className="text-muted-foreground mb-6">
+                    We maintain strategic partnerships with numerous leading agricultural machinery manufacturers worldwide
+                  </p>
+                  <div className="grid grid-cols-2 gap-4 text-center">
+                    <div className="p-3 bg-background rounded-lg border border-border/50">
+                      <p className="font-bold text-2xl text-primary">15+</p>
+                      <p className="text-xs text-muted-foreground">Brand Partners</p>
+                    </div>
+                    <div className="p-3 bg-background rounded-lg border border-border/50">
+                      <p className="font-bold text-2xl text-accent">100%</p>
+                      <p className="text-xs text-muted-foreground">Authentic Products</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Partnership Categories */}
+          <div className="mt-16 lg:mt-20">
+            <div 
+              className="text-center mb-12"
+              data-aos="fade-up"
+            >
+              <h3 className="font-display text-2xl lg:text-3xl font-bold text-foreground mb-4">
+                Our Partnership Categories
+              </h3>
+              <p className="text-muted-foreground">
+                Comprehensive partnerships across all agricultural machinery segments
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+              {[
+                {
+                  title: "Tractor Manufacturers",
+                  description: "Leading global tractor brands for all farming applications",
+                  icon: Truck,
+                  count: "8+",
+                },
+                {
+                  title: "Implement Suppliers",
+                  description: "Farm implements and cultivation equipment partners",
+                  icon: Wrench,
+                  count: "12+",
+                },
+                {
+                  title: "Harvesting Equipment",
+                  description: "Combine harvesters and specialized harvesting machinery",
+                  icon: Award,
+                  count: "5+",
+                },
+                {
+                  title: "Parts & Service",
+                  description: "Genuine parts suppliers and technical service partners",
+                  icon: Shield,
+                  count: "20+",
+                },
+              ].map((category, index) => (
+                <div
+                  key={category.title}
+                  className="group p-6 rounded-2xl bg-card border border-border/50 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 text-center"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                >
+                  <div className="w-16 h-16 mx-auto rounded-2xl hero-gradient flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                    <category.icon className="h-8 w-8 text-primary-foreground" />
+                  </div>
+                  <div className="mb-3">
+                    <span className="font-display text-2xl font-bold text-primary">{category.count}</span>
+                  </div>
+                  <h4 className="font-display text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                    {category.title}
+                  </h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {category.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Our Impact Section - New */}
       <section className="py-20 lg:py-28 bg-background relative overflow-hidden">
         {/* Gradient Divider */}

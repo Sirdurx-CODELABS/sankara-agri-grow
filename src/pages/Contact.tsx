@@ -53,8 +53,8 @@ const contactInfo = [
     icon: MapPin,
     title: "Office Address",
     description: "Visit us at our location",
-    details: ["Kano, Nigeria"],
-    action: null,
+    details: ["Kano, Nigeria", "View on Google Maps"],
+    action: "https://maps.app.goo.gl/tkP6Bmp7WNF2BaVJ8",
   },
 ];
 
@@ -157,15 +157,15 @@ const Contact = () => {
                 </a>
               </div>
               <div className="p-4 rounded-xl bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20">
-                <MessageCircle className="h-6 w-6 text-accent mx-auto mb-2" />
-                <p className="text-primary-foreground text-sm font-medium mb-1">WhatsApp</p>
+                <MapPin className="h-6 w-6 text-accent mx-auto mb-2" />
+                <p className="text-primary-foreground text-sm font-medium mb-1">Location</p>
                 <a 
-                  href="https://wa.me/2348099933644" 
+                  href="https://maps.app.goo.gl/tkP6Bmp7WNF2BaVJ8" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary-foreground/80 text-xs hover:text-accent transition-colors"
                 >
-                  Chat Now
+                  Get Directions
                 </a>
               </div>
             </div>
@@ -193,8 +193,13 @@ const Contact = () => {
                 </a>
               </Button>
               <Button variant="heroOutline" size="xl" className="shadow-xl hover:scale-105 transition-transform duration-300" asChild>
-                <a href="#contact-form">
-                  Send Message
+                <a 
+                  href="https://maps.app.goo.gl/tkP6Bmp7WNF2BaVJ8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MapPin className="h-5 w-5" />
+                  Get Directions
                 </a>
               </Button>
             </div>
@@ -229,7 +234,17 @@ const Contact = () => {
                     <div className="space-y-2">
                       {info.details.map((detail, idx) => (
                         <p key={idx} className="text-sm text-muted-foreground">
-                          {info.action ? (
+                          {info.action && idx === info.details.length - 1 && info.icon === MapPin ? (
+                            <a
+                              href={info.action}
+                              className="hover:text-primary transition-colors inline-flex items-center gap-1"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <MapPin className="h-4 w-4" />
+                              {detail}
+                            </a>
+                          ) : info.action && idx === 0 && info.icon !== MapPin ? (
                             <a
                               href={info.action}
                               className="hover:text-primary transition-colors"
@@ -389,20 +404,55 @@ const Contact = () => {
       </section>
 
       {/* Map Section */}
-      <section className="h-96 lg:h-[500px] bg-muted relative overflow-hidden">
-        <div className="absolute inset-0">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414770757!3d6.524379395301645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1629800000000!5m2!1sen!2sus"
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Sankara Nigeria Location"
-            className="w-full h-full"
-            aria-label="Map showing Sankara Nigeria Limited location"
-        />
+      <section className="py-16 lg:py-24 bg-muted relative overflow-hidden">
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl mb-8">
+          <div className="text-center" data-aos="fade-up">
+            <h2 className="font-display text-2xl lg:text-3xl font-bold text-foreground mb-4">
+              Visit Our Location
+            </h2>
+            <p className="text-muted-foreground mb-6">
+              Find us in Kano, Nigeria. Click the button below for detailed directions.
+            </p>
+            <Button variant="default" size="lg" className="shadow-lg hover:scale-105 transition-transform duration-300" asChild>
+              <a
+                href="https://maps.app.goo.gl/tkP6Bmp7WNF2BaVJ8"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MapPin className="h-5 w-5 mr-2" />
+                Open in Google Maps
+              </a>
+            </Button>
+          </div>
+        </div>
+        <div className="h-96 lg:h-[500px] relative overflow-hidden">
+          <div className="absolute inset-0">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414770757!3d6.524379395301645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1629800000000!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Sankara Nigeria Location"
+              className="w-full h-full"
+              aria-label="Map showing Sankara Nigeria Limited location"
+            />
+          </div>
+          {/* Overlay with location link */}
+          <div className="absolute top-4 right-4 z-10">
+            <Button variant="secondary" size="sm" className="shadow-lg backdrop-blur-sm" asChild>
+              <a
+                href="https://maps.app.goo.gl/tkP6Bmp7WNF2BaVJ8"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MapPin className="h-4 w-4 mr-1" />
+                Directions
+              </a>
+            </Button>
+          </div>
         </div>
       </section>
     </Layout>

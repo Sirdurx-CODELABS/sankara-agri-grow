@@ -61,6 +61,12 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Custom brand colors
+        brand: {
+          blue: "#000066",
+          "blue-light": "#0000CC",
+          "blue-dark": "#000033",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
