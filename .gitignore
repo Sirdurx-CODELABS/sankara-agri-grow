@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Large gallery images - too heavy for GitHub (use Git LFS or CDN instead)
+public/images/new/ACE*.jpg
+public/images/new/ACE*.JPG
+public/images/new/IMG_*.JPG
+public/images/new/IMG_*.jpg
+public/images/WhatsApp*
