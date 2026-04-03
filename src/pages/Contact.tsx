@@ -5,7 +5,6 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Form,
   FormControl,
@@ -21,42 +20,21 @@ import {
   MapPin,
   Send,
   MessageCircle,
+  Clock,
+  CheckCircle,
+  ArrowRight,
+  Headphones,
 } from "lucide-react";
-import tractorZoomlion from "@/assets/tractor-zoomlion.jpg";
 
-// Form validation schema
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().optional(),
+  subject: z.string().min(2, "Subject is required"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
-
-const contactInfo = [
-  {
-    icon: Phone,
-    title: "Phone Support",
-    description: "Call us for immediate assistance",
-    details: ["+234 809 993 3644", "+234 803 807 4309"],
-    action: "tel:+2348099933644",
-  },
-  {
-    icon: Mail,
-    title: "Email Support",
-    description: "Send us an email anytime",
-    details: ["sankaranigerialimited@gmail.com"],
-    action: "mailto:sankaranigerialimited@gmail.com",
-  },
-  {
-    icon: MapPin,
-    title: "Office Address",
-    description: "Visit us at our location",
-    details: ["Kano, Nigeria", "View on Google Maps"],
-    action: "https://maps.app.goo.gl/tkP6Bmp7WNF2BaVJ8",
-  },
-];
 
 const Contact = () => {
   const { toast } = useToast();
@@ -64,369 +42,380 @@ const Contact = () => {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
+      name: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
     },
   });
 
   const onSubmit = async (data: ContactFormValues) => {
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
-
     toast({
       title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you shortly.",
+      description: "Thank you for contacting us. We'll get back to you within 24 hours.",
     });
-
     form.reset();
   };
 
   return (
     <Layout>
-      {/* Hero Section - Enhanced with More Content */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
+      {/* Hero Section */}
+      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={tractorZoomlion}
+            src="/images/new/backgrounds/bglaeste.jpeg"
             alt="Agricultural machinery"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover"
           />
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-secondary/95 via-secondary/90 to-secondary/85" />
-          {/* Animated Pattern Overlay */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:50px_50px] opacity-20 animate-pulse" />
+          <div className="absolute inset-0 bg-black/60 z-10" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] opacity-30 z-10" />
         </div>
 
-        {/* Centered Content */}
-        <div className="relative container mx-auto px-4 lg:px-8 py-20 lg:py-32 max-w-7xl z-10">
+        <div className="relative container mx-auto px-4 lg:px-8 py-20 max-w-7xl z-20">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Badge */}
-            <div 
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent/20 backdrop-blur-sm border border-accent/30 mb-8 shadow-xl"
+            <div
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-2xl"
               data-aos="fade-down"
             >
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <span className="text-accent text-sm font-semibold">Get In Touch Today</span>
+              <Headphones className="w-4 h-4 text-primary" />
+              <span className="text-white font-semibold text-sm">Expert Support Available 24/7</span>
             </div>
 
-            {/* Main Title */}
-            <h1 
-              className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight"
+            <h1
+              className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1] mb-6"
               data-aos="fade-up"
               data-aos-delay="100"
             >
-              Contact Us
+              Let's Discuss Your
+              <span className="block mt-2 bg-gradient-to-r from-primary via-primary to-primary bg-clip-text text-transparent">
+                Farming Needs
+              </span>
             </h1>
 
-            {/* Subtitle */}
-            <p 
-              className="text-lg lg:text-xl text-primary-foreground/90 mb-8 leading-relaxed max-w-2xl mx-auto"
+            <p
+              className="text-xl text-white/85 mb-12 leading-relaxed max-w-3xl mx-auto"
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              We're here to answer your questions and support your agricultural journey. Reach out to our expert team for personalized assistance.
+              Our agricultural machinery experts are ready to help you find the right equipment, spare parts, or service solution for your operation.
             </p>
 
-            {/* Additional Content - Quick Contact Options */}
-            <div 
-              className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6 max-w-3xl mx-auto mb-10"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <div className="p-4 rounded-xl bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20">
-                <Phone className="h-6 w-6 text-accent mx-auto mb-2" />
-                <p className="text-primary-foreground text-sm font-medium mb-1">Call Us</p>
-                <a 
-                  href="tel:+2348099933644" 
-                  className="text-primary-foreground/80 text-xs hover:text-accent transition-colors"
-                >
-                  +234 809 993 3644
-                </a>
-              </div>
-              <div className="p-4 rounded-xl bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20">
-                <Mail className="h-6 w-6 text-accent mx-auto mb-2" />
-                <p className="text-primary-foreground text-sm font-medium mb-1">Email Us</p>
-                <a 
-                  href="mailto:sankaranigerialimited@gmail.com" 
-                  className="text-primary-foreground/80 text-xs hover:text-accent transition-colors break-all"
-                >
-                  sankaranigerialimited@gmail.com
-                </a>
-              </div>
-              <div className="p-4 rounded-xl bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20">
-                <MapPin className="h-6 w-6 text-accent mx-auto mb-2" />
-                <p className="text-primary-foreground text-sm font-medium mb-1">Location</p>
-                <a 
-                  href="https://maps.app.goo.gl/tkP6Bmp7WNF2BaVJ8" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary-foreground/80 text-xs hover:text-accent transition-colors"
-                >
-                  Get Directions
-                </a>
-              </div>
-            </div>
-
-            {/* CTA Buttons */}
-            <div 
-              className="flex flex-wrap justify-center gap-4 lg:gap-6"
-              data-aos="zoom-in"
-              data-aos-delay="400"
-            >
-              <Button variant="hero" size="xl" className="shadow-2xl hover:scale-105 transition-transform duration-300" asChild>
+            <div className="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="300">
+              <Button variant="hero" size="lg" className="shadow-2xl hover:scale-105 transition-all duration-300" asChild>
                 <a href="tel:+2348099933644">
                   <Phone className="h-5 w-5" />
                   Call Now
                 </a>
               </Button>
-              <Button variant="whatsapp" size="xl" className="shadow-xl hover:scale-105 transition-transform duration-300" asChild>
-                <a
-                  href="https://wa.me/2348099933644"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+              <Button variant="whatsapp" size="lg" className="shadow-xl hover:scale-105 transition-all duration-300" asChild>
+                <a href="https://wa.me/2348099933644" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-5 w-5" />
-                  WhatsApp
-                </a>
-              </Button>
-              <Button variant="heroOutline" size="xl" className="shadow-xl hover:scale-105 transition-transform duration-300" asChild>
-                <a 
-                  href="https://maps.app.goo.gl/tkP6Bmp7WNF2BaVJ8"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MapPin className="h-5 w-5" />
-                  Get Directions
+                  WhatsApp Us
                 </a>
               </Button>
             </div>
           </div>
         </div>
 
-        {/* Decorative Bottom Gradient */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background via-background/80 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/80 to-transparent z-20" />
       </section>
 
-      {/* Contact Information Cards */}
-      <section className="py-16 lg:py-24 bg-background">
+      {/* Quick Contact Strips */}
+      <section className="bg-primary py-0">
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-            {contactInfo.map((info, index) => {
-              const Icon = info.icon;
-              return (
-                <Card
-                  key={index}
-                  className="border-border/50 shadow-lg hover:shadow-xl transition-all duration-300"
-                  data-aos="fade-up"
-                  data-aos-delay={index * 100}
-                >
-                  <CardHeader>
-                    <div className="w-14 h-14 rounded-xl hero-gradient flex items-center justify-center mb-4 shadow-lg">
-                      <Icon className="h-7 w-7 text-primary-foreground" />
-                    </div>
-                    <CardTitle className="text-xl">{info.title}</CardTitle>
-                    <CardDescription>{info.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-2">
-                      {info.details.map((detail, idx) => (
-                        <p key={idx} className="text-sm text-muted-foreground">
-                          {info.action && idx === info.details.length - 1 && info.icon === MapPin ? (
-                            <a
-                              href={info.action}
-                              className="hover:text-primary transition-colors inline-flex items-center gap-1"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <MapPin className="h-4 w-4" />
-                              {detail}
-                            </a>
-                          ) : info.action && idx === 0 && info.icon !== MapPin ? (
-                            <a
-                              href={info.action}
-                              className="hover:text-primary transition-colors"
-                              target={info.action.startsWith("http") ? "_blank" : undefined}
-                              rel={info.action.startsWith("http") ? "noopener noreferrer" : undefined}
-                            >
-                              {detail}
-                            </a>
-                          ) : (
-                            detail
-                          )}
-                        </p>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
+          <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/20">
+            {[
+              { icon: Phone, label: "Sales Line", value: "+234 809 993 3644", href: "tel:+2348099933644" },
+              { icon: Mail, label: "Email Us", value: "sankaranigerialimited@gmail.com", href: "mailto:sankaranigerialimited@gmail.com" },
+              { icon: Clock, label: "Working Hours", value: "Mon – Sat: 8:00 AM – 6:00 PM", href: null },
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-4 px-6 py-5">
+                <div className="w-10 h-10 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
+                  <item.icon className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <p className="text-white/60 text-xs font-medium uppercase tracking-wider">{item.label}</p>
+                  {item.href ? (
+                    <a href={item.href} className="text-white text-sm font-semibold hover:text-white/80 transition-colors">
+                      {item.value}
+                    </a>
+                  ) : (
+                    <p className="text-white text-sm font-semibold">{item.value}</p>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Contact Form Section */}
-      <section id="contact-form" className="py-16 lg:py-24 bg-muted">
-        <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
-          <Card className="border-border/50 shadow-xl" data-aos="fade-up">
-            <CardHeader>
-              <CardTitle className="text-2xl lg:text-3xl">Send Us a Message</CardTitle>
-              <CardDescription>
-                Fill out the form below and we'll get back to you as soon as possible.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel htmlFor="name">Full Name *</FormLabel>
-                          <FormControl>
-                      <Input
-                        id="name"
-                        placeholder="Your name"
-                              {...field}
-                              aria-label="Full Name"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+      {/* Main Contact Section - Split Layout */}
+      <section className="py-20 lg:py-32 bg-background">
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+          <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
 
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel htmlFor="email">Email Address *</FormLabel>
-                          <FormControl>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="your@email.com"
-                              {...field}
-                              aria-label="Email Address"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel htmlFor="phone">Phone Number</FormLabel>
-                        <FormControl>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        placeholder="+234 xxx xxx xxxx"
-                            {...field}
-                            aria-label="Phone Number"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel htmlFor="message">Message *</FormLabel>
-                        <FormControl>
-                    <Textarea
-                      id="message"
-                      placeholder="Tell us more about your enquiry..."
-                      rows={5}
-                            {...field}
-                            aria-label="Message"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full"
-                    disabled={form.formState.isSubmitting}
-                  >
-                    {form.formState.isSubmitting ? (
-                      "Sending..."
-                    ) : (
-                      <>
-                        Send Message
-                        <Send className="h-5 w-5 ml-2" />
-                      </>
-                    )}
-                  </Button>
-                </form>
-              </Form>
-
-              {/* WhatsApp CTA Button */}
-              <div className="mt-6">
-                <Button
-                  variant="whatsapp"
-                  size="lg"
-                  className="w-full"
-                  asChild
-                >
-                  <a
-                    href="https://wa.me/2348099933644"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Chat on WhatsApp"
-                  >
-                    <MessageCircle className="h-5 w-5 mr-2" />
-                    Chat on WhatsApp
-                  </a>
-                </Button>
+            {/* Left - Contact Info */}
+            <div className="lg:col-span-2 space-y-8" data-aos="fade-right">
+              <div>
+                <span className="text-primary font-semibold text-sm uppercase tracking-wider">Contact Information</span>
+                <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mt-3 mb-4">
+                  We're Here to Help
+                </h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  Whether you need a new tractor, spare parts, maintenance service, or expert advice — our team is ready to assist you.
+                </p>
               </div>
-            </CardContent>
-          </Card>
+
+              {/* Contact Cards */}
+              <div className="space-y-4">
+                {[
+                  {
+                    icon: Phone,
+                    title: "Phone",
+                    lines: ["Sales: +234 809 993 3644", "Parts: +234 802 648 7775"],
+                    href: "tel:+2348099933644",
+                  },
+                  {
+                    icon: Mail,
+                    title: "Email",
+                    lines: ["sankaranigerialimited@gmail.com"],
+                    href: "mailto:sankaranigerialimited@gmail.com",
+                  },
+                  {
+                    icon: MapPin,
+                    title: "Location",
+                    lines: ["Kano, Nigeria"],
+                    href: "https://maps.app.goo.gl/tkP6Bmp7WNF2BaVJ8",
+                  },
+                  {
+                    icon: Clock,
+                    title: "Business Hours",
+                    lines: ["Mon – Fri: 8:00 AM – 6:00 PM", "Saturday: 9:00 AM – 4:00 PM"],
+                    href: null,
+                  },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start gap-4 p-5 rounded-2xl bg-muted/50 border border-border/50 hover:border-primary/30 hover:shadow-md transition-all duration-300"
+                  >
+                    <div className="w-12 h-12 rounded-xl hero-gradient flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <item.icon className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground text-sm mb-1">{item.title}</p>
+                      {item.lines.map((line, idx) => (
+                        item.href && idx === 0 ? (
+                          <a
+                            key={idx}
+                            href={item.href}
+                            target={item.href.startsWith("http") ? "_blank" : undefined}
+                            rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                            className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                          >
+                            {line}
+                          </a>
+                        ) : (
+                          <p key={idx} className="text-sm text-muted-foreground">{line}</p>
+                        )
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Why Contact Us */}
+              <div className="bg-primary/5 rounded-2xl p-6 border border-primary/20">
+                <h3 className="font-semibold text-foreground mb-4 text-sm uppercase tracking-wider">Why Choose Sankara</h3>
+                <div className="space-y-3">
+                  {[
+                    "40+ years of agricultural expertise",
+                    "Genuine OEM spare parts",
+                    "Nationwide delivery across Nigeria",
+                    "Certified technical support team",
+                  ].map((point, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                      <span className="text-sm text-muted-foreground">{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Right - Contact Form */}
+            <div className="lg:col-span-3" data-aos="fade-left">
+              <div className="bg-card rounded-3xl border border-border/50 shadow-xl overflow-hidden">
+                {/* Form Header */}
+                <div className="hero-gradient px-8 py-6">
+                  <h3 className="font-display text-2xl font-bold text-white">Send Us a Message</h3>
+                  <p className="text-white/80 text-sm mt-1">We'll respond within 24 business hours</p>
+                </div>
+
+                {/* Form Body */}
+                <div className="p-8">
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+                      <div className="grid sm:grid-cols-2 gap-5">
+                        <FormField
+                          control={form.control}
+                          name="name"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-foreground font-medium">Full Name *</FormLabel>
+                              <FormControl>
+                                <Input
+                                  placeholder="John Doe"
+                                  className="rounded-xl border-border/60 focus:border-primary h-11"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        <FormField
+                          control={form.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-foreground font-medium">Email Address *</FormLabel>
+                              <FormControl>
+                                <Input
+                                  type="email"
+                                  placeholder="you@example.com"
+                                  className="rounded-xl border-border/60 focus:border-primary h-11"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+
+                      <div className="grid sm:grid-cols-2 gap-5">
+                        <FormField
+                          control={form.control}
+                          name="phone"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-foreground font-medium">Phone Number</FormLabel>
+                              <FormControl>
+                                <Input
+                                  type="tel"
+                                  placeholder="+234 xxx xxx xxxx"
+                                  className="rounded-xl border-border/60 focus:border-primary h-11"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        <FormField
+                          control={form.control}
+                          name="subject"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-foreground font-medium">Subject *</FormLabel>
+                              <FormControl>
+                                <Input
+                                  placeholder="e.g. Tractor Inquiry"
+                                  className="rounded-xl border-border/60 focus:border-primary h-11"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+
+                      <FormField
+                        control={form.control}
+                        name="message"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-foreground font-medium">Message *</FormLabel>
+                            <FormControl>
+                              <Textarea
+                                placeholder="Tell us about your requirements — machinery type, farm size, location, or any specific questions..."
+                                rows={5}
+                                className="rounded-xl border-border/60 focus:border-primary resize-none"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                        <Button
+                          type="submit"
+                          size="lg"
+                          className="flex-1 rounded-xl shadow-lg hover:scale-105 transition-all duration-300 group"
+                          disabled={form.formState.isSubmitting}
+                        >
+                          {form.formState.isSubmitting ? (
+                            "Sending..."
+                          ) : (
+                            <>
+                              Send Message
+                              <Send className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                            </>
+                          )}
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="whatsapp"
+                          size="lg"
+                          className="flex-1 rounded-xl shadow-lg hover:scale-105 transition-all duration-300"
+                          asChild
+                        >
+                          <a href="https://wa.me/2348099933644" target="_blank" rel="noopener noreferrer">
+                            <MessageCircle className="h-4 w-4 mr-2" />
+                            WhatsApp
+                          </a>
+                        </Button>
+                      </div>
+                    </form>
+                  </Form>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Map Section */}
-      <section className="py-16 lg:py-24 bg-muted relative overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8 max-w-7xl mb-8">
-          <div className="text-center" data-aos="fade-up">
-            <h2 className="font-display text-2xl lg:text-3xl font-bold text-foreground mb-4">
-              Visit Our Location
+      <section className="bg-muted/40 py-20 lg:py-28">
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+          <div className="text-center mb-10" data-aos="fade-up">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">Find Us</span>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mt-3 mb-3">
+              Visit Our Office
             </h2>
-            <p className="text-muted-foreground mb-6">
-              Find us in Kano, Nigeria. Click the button below for detailed directions.
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Located in Kano, Nigeria — serving farmers and agribusinesses across all 36 states.
             </p>
-            <Button variant="default" size="lg" className="shadow-lg hover:scale-105 transition-transform duration-300" asChild>
-              <a
-                href="https://maps.app.goo.gl/tkP6Bmp7WNF2BaVJ8"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+            <Button
+              variant="default"
+              size="lg"
+              className="mt-6 shadow-lg hover:scale-105 transition-all duration-300 group"
+              asChild
+            >
+              <a href="https://maps.app.goo.gl/tkP6Bmp7WNF2BaVJ8" target="_blank" rel="noopener noreferrer">
                 <MapPin className="h-5 w-5 mr-2" />
-                Open in Google Maps
+                Get Directions
+                <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
           </div>
-        </div>
-        <div className="h-96 lg:h-[500px] relative overflow-hidden">
-          <div className="absolute inset-0">
+
+          <div className="rounded-3xl overflow-hidden shadow-2xl border border-border/50 h-96 lg:h-[480px]" data-aos="zoom-in">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414770757!3d6.524379395301645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1629800000000!5m2!1sen!2sus"
               width="100%"
@@ -436,22 +425,8 @@ const Contact = () => {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Sankara Nigeria Location"
-              className="w-full h-full"
               aria-label="Map showing Sankara Nigeria Limited location"
             />
-          </div>
-          {/* Overlay with location link */}
-          <div className="absolute top-4 right-4 z-10">
-            <Button variant="secondary" size="sm" className="shadow-lg backdrop-blur-sm" asChild>
-              <a
-                href="https://maps.app.goo.gl/tkP6Bmp7WNF2BaVJ8"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <MapPin className="h-4 w-4 mr-1" />
-                Directions
-              </a>
-            </Button>
           </div>
         </div>
       </section>

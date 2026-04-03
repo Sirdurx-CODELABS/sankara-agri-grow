@@ -1,74 +1,95 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, Phone, Sparkles, TrendingUp, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-tractor.jpg";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Background Image with Gradient Overlay */}
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background Image with Parallax Effect */}
       <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-black/40" />
         <img
-          src={heroImage}
-          alt="Agricultural tractor in field at sunset"
-          className="w-full h-full object-cover"
+          src="/images/new/backgrounds/bglaeste.jpeg"
+          alt="Agricultural tractor in field"
+          className="w-full h-full object-cover scale-105"
+          style={{ transform: 'translateZ(0)' }}
         />
-        {/* Enhanced Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/85 to-secondary/60" />
-        {/* Animated Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10 animate-pulse-glow" />
+        {/* Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        
+        {/* Animated Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] opacity-30" />
       </div>
 
       {/* Content */}
-      <div className="relative container mx-auto px-4 lg:px-8 py-20 max-w-7xl">
-        <div className="max-w-3xl">
-          {/* Badge */}
+      <div className="relative container mx-auto px-4 lg:px-8 py-20 max-w-7xl z-10">
+        <div className="max-w-4xl">
+          {/* Premium Badge */}
           <div 
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent/20 backdrop-blur-sm border border-accent/30 mb-8 shadow-xl"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-2xl"
             data-aos="fade-up"
             data-aos-delay="0"
           >
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-accent text-sm font-semibold">Nigeria's Trusted Machinery Partner</span>
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-white text-sm font-semibold">Nigeria's Premier Agricultural Machinery Partner</span>
           </div>
 
-          {/* Headline */}
+          {/* Main Headline */}
           <h1 
-            className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight mb-6"
+            className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1] mb-6"
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            Driving Agricultural Growth With{" "}
-            <span className="text-accent drop-shadow-lg">Reliable Machinery</span>
+            Driving Agricultural
+            <span className="block mt-2 bg-gradient-to-r from-primary via-primary to-primary bg-clip-text text-transparent">
+              Innovation
+            </span>
           </h1>
 
           {/* Subheadline */}
           <p 
-            className="text-xl text-primary-foreground/90 mb-10 leading-relaxed"
+            className="text-xl lg:text-2xl text-white/90 mb-12 leading-relaxed max-w-2xl"
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Premium tractors, farm implements, and genuine spare parts from world-leading brands. Powering Nigerian agriculture with quality and excellence.
+            Premium tractors, farm implements, and genuine spare parts from world-leading brands. Empowering Nigerian farmers with reliable machinery and exceptional service.
           </p>
 
           {/* CTA Buttons */}
           <div 
-            className="flex flex-wrap gap-4"
+            className="flex flex-wrap gap-4 mb-16"
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            <Button variant="hero" size="xl" className="shadow-2xl hover:scale-105 transition-transform duration-300" asChild>
+            <Button 
+              variant="hero" 
+              size="xl" 
+              className="shadow-2xl hover:scale-105 transition-all duration-300 group" 
+              asChild
+            >
               <Link to="/products">
-                View Products
-                <ArrowRight className="h-5 w-5" />
+                Explore Products
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-            <Button variant="heroOutline" size="xl" className="shadow-xl hover:scale-105 transition-transform duration-300" asChild>
+            <Button 
+              variant="heroOutline" 
+              size="xl" 
+              className="shadow-xl hover:scale-105 transition-all duration-300 bg-white/10 backdrop-blur-sm border-white/30 hover:bg-white/20" 
+              asChild
+            >
               <Link to="/contact">
                 Contact Sales
               </Link>
             </Button>
-            <Button variant="whatsapp" size="xl" className="shadow-xl hover:scale-105 transition-transform duration-300" asChild>
+            <Button 
+              variant="whatsapp" 
+              size="xl" 
+              className="shadow-xl hover:scale-105 transition-all duration-300" 
+              asChild
+            >
               <a
                 href="https://wa.me/2348099933644"
                 target="_blank"
@@ -80,43 +101,33 @@ export function HeroSection() {
             </Button>
           </div>
 
-          {/* Stats */}
+          {/* Stats Cards with Glassmorphism */}
           <div 
-            className="grid grid-cols-3 gap-8 mt-20 pt-8 border-t border-primary-foreground/20"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4"
             data-aos="fade-up"
             data-aos-delay="400"
           >
-            <div className="text-center">
-              <p className="font-display text-4xl md:text-5xl font-bold text-accent mb-2">40+</p>
-              <p className="text-primary-foreground/80 text-sm font-medium">Years Experience</p>
-            </div>
-            <div className="text-center">
-              <p className="font-display text-4xl md:text-5xl font-bold text-accent mb-2">500+</p>
-              <p className="text-primary-foreground/80 text-sm font-medium">Tractors Sold</p>
-            </div>
-            <div className="text-center">
-              <p className="font-display text-4xl md:text-5xl font-bold text-accent mb-2">36</p>
-              <p className="text-primary-foreground/80 text-sm font-medium">States Covered</p>
-            </div>
+            {[
+              { icon: TrendingUp, value: "40+", label: "Years Experience" },
+              { icon: Users, value: "500+", label: "Happy Clients" },
+              { icon: Award, value: "1200+", label: "Tractors Delivered" },
+              { icon: Phone, value: "24/7", label: "Support" },
+            ].map((stat, index) => (
+              <div 
+                key={index}
+                className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300 hover:-translate-y-1"
+              >
+                <stat.icon className="w-6 h-6 text-primary mb-2" />
+                <p className="font-display text-3xl font-bold text-white mb-1">{stat.value}</p>
+                <p className="text-white/70 text-xs font-medium">{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Floating Tractor Image (Optional decorative element) */}
-      <div 
-        className="absolute right-0 top-1/2 -translate-y-1/2 hidden xl:block w-1/3 opacity-20"
-        data-aos="zoom-in"
-        data-aos-delay="500"
-      >
-        <img
-          src={heroImage}
-          alt=""
-          className="w-full h-auto object-cover rounded-2xl shadow-2xl animate-float"
-        />
-      </div>
-
-      {/* Decorative element */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background via-background/80 to-transparent" />
+      {/* Bottom Gradient Fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/80 to-transparent" />
     </section>
   );
 }

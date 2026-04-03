@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Phone, MessageCircle, Tractor, Wheat, Wrench, Cog } from "lucide-react";
+import { Phone, MessageCircle, Tractor, Wheat, Wrench, Cog, Sparkles, Search, Filter, ArrowRight, CheckCircle, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import heroImage from "@/assets/hero-tractor.jpg";
@@ -300,168 +300,286 @@ const Products = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Products with Tractor Showcase Background */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
-            alt="Agricultural machinery and tractors"
-            className="w-full h-full object-cover object-center"
+            src="/images/new/backgrounds/bglaeste.jpeg"
+            alt="Premium agricultural tractors and machinery"
+            className="w-full h-full object-cover"
           />
-          {/* Gradient Overlay for Readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-secondary/95 via-secondary/90 to-secondary/85" />
-          {/* Animated Pattern Overlay */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:50px_50px] opacity-20 animate-pulse" />
-          {/* Additional Gradient Blend */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
+          {/* Dark Overlay for Readability */}
+          <div className="absolute inset-0 bg-black/60 z-10" />
+          
+          {/* Subtle Grid Pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] opacity-30 z-10" />
         </div>
-        
-        {/* Centered Content */}
-        <div className="relative container mx-auto px-4 lg:px-8 py-20 max-w-7xl z-10">
-          <div 
-            className="max-w-4xl mx-auto text-center"
-            data-aos="fade-up"
-            data-aos-duration="800"
-          >
-            <span className="text-primary-foreground font-semibold text-sm uppercase tracking-wider mb-6 block">
-              Our Products
-            </span>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground leading-tight mb-6">
-              Premium Agricultural Machinery
+
+        {/* Content */}
+        <div className="relative container mx-auto px-4 lg:px-8 py-20 max-w-7xl z-20">
+          <div className="max-w-5xl mx-auto text-center">
+            {/* Badge */}
+            <div 
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-2xl"
+              data-aos="fade-down"
+              data-aos-duration="600"
+            >
+              <Sparkles className="h-4 w-4 text-primary" />
+              <span className="text-white font-semibold text-sm">Premium Agricultural Machinery</span>
+            </div>
+
+            {/* Main Headline */}
+            <h1 
+              className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1] mb-6"
+              data-aos="fade-up"
+              data-aos-delay="100"
+              data-aos-duration="900"
+            >
+              Discover Our
+              <span className="block mt-2 bg-gradient-to-r from-primary via-primary to-primary bg-clip-text text-transparent">
+                Product Range
+              </span>
             </h1>
-            <p className="text-lg lg:text-xl text-primary-foreground/90 leading-relaxed max-w-2xl mx-auto">
-              Explore our comprehensive range of tractors, combine harvesters, implements, and specialized machinery from world-leading manufacturers.
+
+            {/* Subtitle */}
+            <p 
+              className="text-lg lg:text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto"
+              data-aos="fade-up"
+              data-aos-delay="200"
+              data-aos-duration="900"
+            >
+              Explore our comprehensive collection of tractors, harvesters, implements, and specialized machinery from world-leading manufacturers.
             </p>
+
+            {/* Quick Stats */}
+            <div 
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              {[
+                { value: "26+", label: "Products" },
+                { value: "4", label: "Categories" },
+                { value: "100%", label: "Authentic" },
+                { value: "24/7", label: "Support" },
+              ].map((stat, index) => (
+                <div key={index} className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300">
+                  <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
+                  <div className="text-xs text-white/70">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Decorative Bottom Gradient */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background via-background/80 to-transparent" />
+        {/* Bottom Wave */}
+        <div className="absolute bottom-0 left-0 right-0 z-20">
+          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="hsl(var(--background))" />
+          </svg>
+        </div>
       </section>
 
-      {/* Products Section with Tabs */}
-      <section className="py-16 lg:py-24 bg-background">
-        <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
-          {/* Category Tabs */}
-          <Tabs value={activeCategory} onValueChange={setActiveCategory} className="w-full">
-            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-5 h-auto p-1 bg-muted/50 mb-8 lg:mb-12 overflow-x-auto">
-              {categories.map((cat) => {
-                const Icon = cat.icon;
-                return (
-                  <TabsTrigger
-                    key={cat.id}
-                    value={cat.id}
-                    className="flex items-center justify-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground whitespace-nowrap"
+      {/* Products Section with Modern Tabs */}
+      <section className="py-20 lg:py-32 bg-background relative">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:48px_48px]" />
+        
+        <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
+          {/* Section Header */}
+          <div 
+            className="text-center max-w-3xl mx-auto mb-12"
             data-aos="fade-up"
           >
-                    {Icon && <Icon className="h-4 w-4" />}
-                    <span className="text-sm font-semibold">{cat.name}</span>
-                  </TabsTrigger>
-                );
-              })}
-            </TabsList>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+              <Filter className="h-4 w-4 text-primary" />
+              <span className="text-primary font-semibold text-sm">Browse by Category</span>
+            </div>
+            <h2 className="font-display text-4xl sm:text-5xl font-bold text-foreground mb-4">
+              Our Product Catalog
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              {filteredProducts.length} {filteredProducts.length === 1 ? 'product' : 'products'} available
+            </p>
+          </div>
+
+          {/* Modern Category Tabs with Glassmorphism */}
+          <Tabs value={activeCategory} onValueChange={setActiveCategory} className="w-full">
+            <div className="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="100">
+              <TabsList className="inline-flex p-1.5 bg-white/50 dark:bg-card/50 backdrop-blur-xl border border-border/50 rounded-2xl shadow-xl">
+                {categories.map((cat) => {
+                  const Icon = cat.icon;
+                  return (
+                    <TabsTrigger
+                      key={cat.id}
+                      value={cat.id}
+                      className={cn(
+                        "flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300",
+                        "data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg",
+                        "data-[state=inactive]:text-muted-foreground data-[state=inactive]:hover:text-foreground"
+                      )}
+                    >
+                      {Icon && <Icon className="h-4 w-4" />}
+                      <span className="hidden sm:inline">{cat.name}</span>
+                      <span className="sm:hidden">{cat.name.split(' ')[0]}</span>
+                    </TabsTrigger>
+                  );
+                })}
+              </TabsList>
+            </div>
 
             {/* All Products Tab */}
-            <TabsContent value="all" className="mt-8">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+            <TabsContent value="all" className="mt-0">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 {allProducts.map((product, index) => (
                   <ProductCard key={product.id} product={product} index={index} />
-            ))}
-          </div>
+                ))}
+              </div>
             </TabsContent>
 
             {/* Tractors Tab */}
-            <TabsContent value="tractors" className="mt-8">
-              <div className="mb-8">
-                <h2 className="text-2xl font-bold mb-2">Tractors</h2>
-                <p className="text-muted-foreground">
+            <TabsContent value="tractors" className="mt-0">
+              <div className="mb-10 text-center" data-aos="fade-up">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 mb-4">
+                  <Tractor className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-3xl font-bold mb-3">Tractors</h3>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
                   High-performance tractors from leading manufacturers for all your farming needs.
                 </p>
               </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 {allProducts
                   .filter((p) => p.category === "tractors")
                   .map((product, index) => (
                     <ProductCard key={product.id} product={product} index={index} />
                   ))}
-                </div>
+              </div>
             </TabsContent>
 
             {/* Combine Harvesters Tab */}
-            <TabsContent value="harvesters" className="mt-8">
-              <div className="mb-8">
-                <h2 className="text-2xl font-bold mb-2">Combine Harvesters</h2>
-                <p className="text-muted-foreground">
+            <TabsContent value="harvesters" className="mt-0">
+              <div className="mb-10 text-center" data-aos="fade-up">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 mb-4">
+                  <Wheat className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-3xl font-bold mb-3">Combine Harvesters</h3>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
                   Efficient combine harvesters for grain crops with advanced harvesting technology.
                 </p>
               </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 {allProducts
                   .filter((p) => p.category === "harvesters")
                   .map((product, index) => (
                     <ProductCard key={product.id} product={product} index={index} />
-                    ))}
-                  </div>
+                  ))}
+              </div>
             </TabsContent>
 
             {/* Implements Tab */}
-            <TabsContent value="implements" className="mt-8">
-              <div className="mb-8">
-                <h2 className="text-2xl font-bold mb-2">Farm Implements</h2>
-                <p className="text-muted-foreground">
+            <TabsContent value="implements" className="mt-0">
+              <div className="mb-10 text-center" data-aos="fade-up">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 mb-4">
+                  <Wrench className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-3xl font-bold mb-3">Farm Implements</h3>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
                   Comprehensive range of implements for tillage, planting, and crop management.
                 </p>
-                  </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 {allProducts
                   .filter((p) => p.category === "implements")
                   .map((product, index) => (
                     <ProductCard key={product.id} product={product} index={index} />
                   ))}
-                </div>
+              </div>
             </TabsContent>
 
             {/* Other Machinery Tab */}
-            <TabsContent value="other" className="mt-8">
-              <div className="mb-8">
-                <h2 className="text-2xl font-bold mb-2">Other Machinery</h2>
-                <p className="text-muted-foreground">
+            <TabsContent value="other" className="mt-0">
+              <div className="mb-10 text-center" data-aos="fade-up">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 mb-4">
+                  <Cog className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-3xl font-bold mb-3">Other Machinery</h3>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
                   Specialized machinery including balers, sprayers, tillers, and processing equipment.
                 </p>
               </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 {allProducts
                   .filter((p) => p.category === "other")
                   .map((product, index) => (
                     <ProductCard key={product.id} product={product} index={index} />
-            ))}
-          </div>
+                  ))}
+              </div>
             </TabsContent>
           </Tabs>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 lg:py-24 bg-muted relative overflow-hidden">
-        {/* Decorative gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+      {/* CTA Section with Glassmorphism */}
+      <section className="py-20 lg:py-32 bg-gradient-to-br from-muted/50 via-background to-muted/30 relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
         
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
           <div 
-            className="max-w-3xl mx-auto text-center"
+            className="max-w-4xl mx-auto"
             data-aos="zoom-in"
-            data-aos-duration="800"
           >
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Can't Find What You're Looking For?
-            </h2>
-            <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
-              Contact us for custom orders and special requirements. We can source any agricultural machinery you need.
-            </p>
-            <Button size="lg" className="shadow-xl hover:scale-105 transition-transform duration-300" asChild>
-              <Link to="/contact">Contact Our Team</Link>
-            </Button>
+            {/* Glassmorphism Card */}
+            <div className="bg-white/40 dark:bg-card/40 backdrop-blur-2xl rounded-3xl p-8 lg:p-12 border border-white/20 shadow-2xl">
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-accent mb-6 shadow-lg">
+                  <Search className="h-10 w-10 text-white" />
+                </div>
+                
+                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+                  Can't Find What You Need?
+                </h2>
+                
+                <p className="text-muted-foreground mb-8 text-lg leading-relaxed max-w-2xl mx-auto">
+                  Contact us for custom orders and special requirements. We can source any agricultural machinery you need with competitive pricing and reliable delivery.
+                </p>
+
+                {/* Features */}
+                <div className="grid sm:grid-cols-3 gap-4 mb-8">
+                  {[
+                    { icon: CheckCircle, text: "Custom Orders" },
+                    { icon: Star, text: "Best Prices" },
+                    { icon: Phone, text: "Expert Support" },
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                      <feature.icon className="h-4 w-4 text-primary" />
+                      <span>{feature.text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-wrap justify-center gap-4">
+                  <Button size="lg" className="shadow-xl hover:scale-105 transition-all duration-300 group" asChild>
+                    <Link to="/contact">
+                      Contact Our Team
+                      <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
+                  <Button variant="outline" size="lg" className="shadow-lg hover:scale-105 transition-all duration-300 bg-white/50 backdrop-blur-sm" asChild>
+                    <a href="tel:+2348099933644">
+                      <Phone className="h-4 w-4" />
+                      Call Now
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -469,64 +587,113 @@ const Products = () => {
   );
 };
 
-// Product Card Component
+// Product Card Component with Glassmorphism
 const ProductCard = ({ product, index }: { product: typeof allProducts[0]; index: number }) => {
   return (
     <div
-      className="group bg-card rounded-2xl overflow-hidden border border-border/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full"
+      className="group relative bg-white/60 dark:bg-card/60 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full"
       data-aos="fade-up"
       data-aos-delay={index * 50}
     >
-      {/* Image */}
-      <div className="aspect-[4/3] overflow-hidden bg-muted relative flex-shrink-0">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        {/* Gradient Overlay on Hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      </div>
+      {/* Gradient Glow Effect */}
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-3xl opacity-0 group-hover:opacity-100 blur transition-opacity duration-500" />
+      
+      {/* Card Content */}
+      <div className="relative bg-white/80 dark:bg-card/80 backdrop-blur-xl rounded-3xl overflow-hidden flex flex-col h-full">
+        {/* Image Container */}
+        <div className="aspect-[4/3] overflow-hidden bg-muted/50 relative flex-shrink-0">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          
+          {/* Category Badge - Glassmorphism */}
+          <div className="absolute top-4 left-4 z-10">
+            <div className="px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-lg">
+              <span className="text-white text-xs font-semibold uppercase tracking-wider">
+                {product.category}
+              </span>
+            </div>
+          </div>
 
-      {/* Content - flex-grow to push button to bottom */}
-      <div className="p-6 lg:p-8 flex flex-col flex-grow">
-        <h3 className="font-display text-xl lg:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-          {product.name}
-        </h3>
-        <p className="text-muted-foreground text-sm lg:text-base mb-6 leading-relaxed flex-grow">
-          {product.description}
-        </p>
-
-        {/* Specs */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {product.specs.map((spec, idx) => (
-            <span
-              key={idx}
-              className="px-3 py-1.5 rounded-lg bg-muted text-xs text-muted-foreground font-medium"
-            >
-              {spec}
-            </span>
-          ))}
+          {/* Hover Overlay with Icon */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+            <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center transform scale-75 group-hover:scale-100 transition-transform duration-500">
+              <ArrowRight className="h-8 w-8 text-white" />
+            </div>
+          </div>
         </div>
 
-        {/* Actions - Fixed at bottom */}
-        <div className="flex gap-2 mt-auto">
-          <Button variant="default" size="sm" className="flex-1 hover:scale-105 transition-transform duration-300" asChild>
-            <a href="tel:+2348099933644">
-              <Phone className="h-4 w-4" />
-              Contact for Price
-            </a>
-          </Button>
-          <Button variant="whatsapp" size="sm" className="hover:scale-105 transition-transform duration-300" asChild>
-            <a
-              href={`https://wa.me/2348099933644?text=${encodeURIComponent(`Hi, I'm interested in ${product.name}`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
+        {/* Content */}
+        <div className="p-6 lg:p-8 flex flex-col flex-grow">
+          {/* Title */}
+          <h3 className="font-display text-xl lg:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300 line-clamp-2">
+            {product.name}
+          </h3>
+          
+          {/* Description */}
+          <p className="text-muted-foreground text-sm lg:text-base mb-6 leading-relaxed line-clamp-3 flex-grow">
+            {product.description}
+          </p>
+
+          {/* Specs - Glassmorphism Pills */}
+          <div className="flex flex-wrap gap-2 mb-6">
+            {product.specs.slice(0, 3).map((spec, idx) => (
+              <div
+                key={idx}
+                className="px-3 py-1.5 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20 text-xs text-foreground font-medium"
+              >
+                {spec}
+              </div>
+            ))}
+            {product.specs.length > 3 && (
+              <div className="px-3 py-1.5 rounded-full bg-muted/50 backdrop-blur-sm border border-border/50 text-xs text-muted-foreground font-medium">
+                +{product.specs.length - 3} more
+              </div>
+            )}
+          </div>
+
+          {/* Divider */}
+          <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-6" />
+
+          {/* Actions */}
+          <div className="flex gap-3 mt-auto">
+            <Button 
+              variant="default" 
+              size="sm" 
+              className="flex-1 hover:scale-105 transition-all duration-300 shadow-lg group/btn" 
+              asChild
             >
-              <MessageCircle className="h-4 w-4" />
-            </a>
-          </Button>
+              <a href="tel:+2348099933644">
+                <Phone className="h-4 w-4" />
+                <span className="hidden sm:inline">Get Price</span>
+                <span className="sm:hidden">Price</span>
+              </a>
+            </Button>
+            <Button 
+              variant="whatsapp" 
+              size="sm" 
+              className="hover:scale-105 transition-all duration-300 shadow-lg" 
+              asChild
+            >
+              <a
+                href={`https://wa.me/2348099933644?text=${encodeURIComponent(`Hi, I'm interested in ${product.name}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Contact via WhatsApp"
+              >
+                <MessageCircle className="h-4 w-4" />
+              </a>
+            </Button>
+          </div>
         </div>
+
+        {/* Bottom Accent Line */}
+        <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-primary via-accent to-primary group-hover:w-full transition-all duration-700 rounded-b-3xl" />
       </div>
     </div>
   );

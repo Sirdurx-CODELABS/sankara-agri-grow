@@ -21,7 +21,8 @@ export const ImageGrid = ({ images }: ImageGridProps) => {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+      {/* Modern Responsive Grid: 1 col mobile, 2 col tablet, 3 col desktop, 4 col large */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
         {images.map((image, index) => (
           <ImageCard
             key={image}

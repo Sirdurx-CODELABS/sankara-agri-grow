@@ -112,82 +112,84 @@ const milestones = [
 const About = () => {
   return (
     <Layout>
-      {/* Hero Section - Centered with New Background */}
+      {/* Hero Section - About Us with Machinery Background */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Background Image - Different from Homepage */}
+        {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={farmImplements}
-            alt="Farm implements and agricultural equipment"
-            className="w-full h-full object-cover object-center"
+            src="/images/new/backgrounds/bglaeste.jpeg"
+            alt="Massey Ferguson tractor - Agricultural excellence"
+            className="w-full h-full object-cover"
           />
-          {/* Gradient Overlay for Readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-secondary/95 via-secondary/90 to-secondary/85" />
-          {/* Animated Pattern Overlay */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:50px_50px] opacity-20 animate-pulse" />
-          {/* Additional Gradient Blend */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
+          {/* Dark Overlay for Readability */}
+          <div className="absolute inset-0 bg-black/60 z-10" />
+          
+          {/* Subtle Pattern Overlay */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[length:50px_50px] opacity-30 z-10" />
         </div>
 
-        {/* Centered Content */}
-        <div className="relative container mx-auto px-4 lg:px-8 py-20 max-w-7xl z-10">
+        {/* Content */}
+        <div className="relative container mx-auto px-4 lg:px-8 py-20 max-w-7xl z-20">
           <div className="max-w-4xl mx-auto text-center">
-            {/* About Us Label */}
+            {/* Badge */}
             <div
-              className="mb-6"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-2xl"
               data-aos="fade-down"
               data-aos-duration="600"
             >
-              <span className="text-primary-foreground font-semibold text-sm uppercase tracking-wider">
-                About Us
-              </span>
+              <Building2 className="w-4 h-4 text-primary" />
+              <span className="text-white font-semibold text-sm">About Sankara Nigeria Limited</span>
             </div>
 
             {/* Main Headline */}
             <h1
-              className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight mb-6"
+              className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1] mb-6"
               data-aos="fade-up"
               data-aos-delay="100"
               data-aos-duration="900"
             >
-              Powering Nigeria's{" "}
-              <span className="text-accent drop-shadow-lg">Agricultural Future</span>
+              Powering Nigeria's
+              <span className="block mt-2 bg-gradient-to-r from-primary via-primary to-primary bg-clip-text text-transparent">
+                Modern Farming
+              </span>
             </h1>
 
             {/* Subtitle */}
             <p
-              className="text-lg lg:text-xl text-primary-foreground/90 mb-10 leading-relaxed max-w-2xl mx-auto"
+              className="text-xl lg:text-2xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto"
               data-aos="fade-up"
               data-aos-delay="200"
               data-aos-duration="900"
             >
-              Since its establishment in 1986, Sankara Nigeria Limited has remained a trusted force in agricultural transformation across Nigeria and the wider region. Built on a foundation of integrity, innovation, and dedicated service, we have led the advancement of mechanized and sustainable farming for nearly four decades.
+              Since 1986, we've been Nigeria's trusted partner in agricultural mechanization, delivering quality machinery and exceptional service to farmers nationwide.
             </p>
 
-            {/* CTA Buttons - Centered */}
+            {/* Stats with Glassmorphism */}
             <div
-              className="flex flex-wrap justify-center gap-4 lg:gap-6"
-              data-aos="zoom-in"
+              className="grid grid-cols-2 md:grid-cols-4 gap-4"
+              data-aos="fade-up"
               data-aos-delay="300"
-              data-aos-duration="900"
             >
-              <Button variant="hero" size="xl" className="shadow-2xl hover:scale-105 transition-transform duration-300" asChild>
-                <Link to="/products">
-                  Explore Products
-                  <ArrowRight className="h-5 w-5" />
-                </Link>
-              </Button>
-              <Button variant="heroOutline" size="xl" className="shadow-xl hover:scale-105 transition-transform duration-300" asChild>
-                <Link to="/contact">
-                  Contact Us
-                </Link>
-              </Button>
+              {[
+                { value: "40+", label: "Years of Excellence" },
+                { value: "1200+", label: "Tractors Delivered" },
+                { value: "5000+", label: "Farmers Served" },
+                { value: "36", label: "States Covered" },
+              ].map((stat, index) => (
+                <div
+                  key={index}
+                  className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300 hover:-translate-y-1"
+                >
+                  <p className="font-display text-4xl font-bold text-white mb-2">{stat.value}</p>
+                  <p className="text-white/70 text-sm font-medium">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Decorative Bottom Gradient */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background via-background/80 to-transparent" />
+        {/* Bottom Gradient */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/80 to-transparent z-20" />
       </section>
 
       {/* Company Story Section - Enhanced */}
